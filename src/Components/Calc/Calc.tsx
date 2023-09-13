@@ -18,10 +18,10 @@ export const Calc = () => {
             <ButtonNumbers number={8} ></ButtonNumbers>
             <ButtonNumbers number={9} ></ButtonNumbers>
             <ButtonNumbers number={0} ></ButtonNumbers>
-            <ButtonFunction number={'+'} ></ButtonFunction>
-            <ButtonFunction number={'/'} ></ButtonFunction>
-            <ButtonFunction number={'*'} ></ButtonFunction>
-            <ButtonFunction number={'-'} ></ButtonFunction>
+            <ButtonFunction symbol={'+'} ></ButtonFunction>
+            <ButtonFunction symbol={'/'} ></ButtonFunction>
+            <ButtonFunction symbol={'*'} ></ButtonFunction>
+            <ButtonFunction symbol={'-'} ></ButtonFunction>
             <ButtonEquality ></ButtonEquality>
 
         </div>

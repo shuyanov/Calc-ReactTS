@@ -93,7 +93,7 @@ const NumberProvider: React.FC<PropsWithChildren<NumberContextValue>> = ({childr
   };
 
 
-  const handleSetCalcFunction = (type: React.SetStateAction<string>) => {
+  const handleSetCalcFunction = (type: string) => {
     if (number) {
       setFunctionType(type);
       handleSetStoredValue();
