@@ -1,18 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import style from './ButtonFunction.module.scss'
-import { NumberContext } from "../NumberProvider/NumberProvider";
 
 interface ButtonNumbersProps {
     number: string
+    onClick: () => void
 }
 
-export const ButtonFunction: React.FC<ButtonNumbersProps> = ({number}) => {
-    const contextValue = useContext(NumberContext);
-    const handleSetCalcFunction = contextValue?.handleSetCalcFunction;
-
-    return(
-        <button className={style.Numbers} onClick={() => {handleSetCalcFunction && handleSetCalcFunction(String(number))}}>
-            <div  className={style.child}>
+export const ButtonFunction: React.FC<ButtonNumbersProps> = ({ number, onClick }) => {
+    return (
+        <button className={style.Numbers} onClick={onClick}>
+            <div className={style.child}>
                 {number}
             </div>
         </button>

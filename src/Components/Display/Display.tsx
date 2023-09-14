@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
-import { NumberContext } from '../NumberProvider/NumberProvider';
+import React from 'react';
 
-const Display: React.FC = () => {
-  const contextValue = useContext(NumberContext);
-  const number = contextValue?.number || '';
-  const storedNumber = contextValue?.number || '';
-  const functionType = contextValue?.number || '';  
+type Props = {
+  counter: number
+  displayCounter: string
+}
+
+const Display: React.FC<Props> = ({ counter, displayCounter }) => {
   return (
     <div>
-      <h2>{!number.length && !storedNumber ? '0' : number || storedNumber}</h2>
-      <p>{!storedNumber ? 'ENTER SOME NUMBERS' : `${storedNumber} ${functionType} ${number}`}</p>
+      <h2>{counter}</h2>
+      <p>{displayCounter}</p>
     </div>
   );
 };
