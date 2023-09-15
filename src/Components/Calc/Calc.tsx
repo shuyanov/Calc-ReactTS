@@ -1,18 +1,24 @@
 import React from "react";
 import Display from "../Display/Display";
-import { ButtonNumbers } from "../ButtonNumbers/ButtonNumbers";
-import { ButtonFunction } from "../ButtonFunction/ButtonFunction";
-import { ButtonEquality } from "../ButtonEquality/ButtonEquality";
-import { ButtonClear } from "../ButtonClear/ButtonClear";
-import { ButtonBack } from "../ButtonBack/ButtonBack";
+import { ButtonNumbers } from "../Buttons/ButtonNumbers/ButtonNumbers";
+;
 import style from "./Calc.module.scss";
+import { ButtonFunction } from "../Buttons/ButtonFunction/ButtonFunction";
+import { ButtonClear } from "../Buttons/ButtonClear/ButtonClear";
+import { ButtonEquality } from "../Buttons/ButtonEquality/ButtonEquality";
+import { ButtonBack } from "../Buttons/ButtonBack/ButtonBack";
 
 
 export const Calc = () => {
     return (
-        <div>
+        <div className={style.calc}>
             <Display />
             <div className={style.clacNumber}>
+                <ButtonClear />
+                <ButtonFunction number={'+'} ></ButtonFunction>
+                <ButtonFunction number={'-'} ></ButtonFunction>
+                <ButtonFunction number={'*'} ></ButtonFunction>
+                <ButtonFunction number={'/'} ></ButtonFunction>
                 <ButtonNumbers number={1} ></ButtonNumbers>
                 <ButtonNumbers number={2} ></ButtonNumbers>
                 <ButtonNumbers number={3} ></ButtonNumbers>
@@ -23,13 +29,10 @@ export const Calc = () => {
                 <ButtonNumbers number={8} ></ButtonNumbers>
                 <ButtonNumbers number={9} ></ButtonNumbers>
                 <ButtonNumbers number={0} ></ButtonNumbers>
-                <ButtonFunction number={'+'} ></ButtonFunction>
-                <ButtonFunction number={'/'} ></ButtonFunction>
-                <ButtonFunction number={'*'} ></ButtonFunction>
-                <ButtonFunction number={'-'} ></ButtonFunction>
-                <ButtonBack />
-                <ButtonClear />
+                <ButtonNumbers number='.' ></ButtonNumbers>
                 <ButtonEquality />
+                <ButtonBack />
+
             </div>
         </div>
     )

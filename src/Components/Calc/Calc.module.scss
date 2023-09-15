@@ -1,4 +1,10 @@
+.calc{
+  // padding: 25px;
+}
+
 .clacNumber{
+  padding: 25px;
+
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: max-content 1fr;

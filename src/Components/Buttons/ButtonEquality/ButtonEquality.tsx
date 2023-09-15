@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import style from './ButtonEquality.module.scss'
-import { NumberContext } from "../NumberProvider/NumberProvider";
+import { NumberContext } from "../../NumberProvider/NumberProvider";
 
 
 

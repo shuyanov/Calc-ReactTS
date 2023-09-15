@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import style from './ButtonNumbers.module.scss'
-import { NumberContext } from "../NumberProvider/NumberProvider";
+import { NumberContext } from "../../NumberProvider/NumberProvider";
 
 interface ButtonNumbersProps {
-    number: number
+    number: number | string
 }
 
 export const ButtonNumbers: React.FC<ButtonNumbersProps> = ({number}) => {

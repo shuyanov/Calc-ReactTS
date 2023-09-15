@@ -5,7 +5,7 @@ import { Calc } from './Components/Calc/Calc'
 function App() {
 
   return (
-    <div>
+    <div className='Calc'>
       <NumberProvider>
         <Calc />
       </NumberProvider>
