@@ -8,10 +8,12 @@ export const ButtonBack = () => {
     const contextValue = useContext(NumberContext);
     const handleBackButton = contextValue?.handleBackButton;
 
-    return(
-        <button className={style.Numbers} onClick={() => {handleBackButton && handleBackButton()}}>
-            <div  className={style.child}>
-                B
+    return (
+        <button className={style.Numbers} onClick={() => { handleBackButton && handleBackButton() }}>
+            <div className={style.child}>
+                <div className={style.circle}>
+                    B
+                </div>
             </div>
         </button>
     )

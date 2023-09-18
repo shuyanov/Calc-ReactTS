@@ -6,14 +6,16 @@ interface ButtonNumbersProps {
     number: number | string
 }
 
-export const ButtonNumbers: React.FC<ButtonNumbersProps> = ({number}) => {
+export const ButtonNumbers: React.FC<ButtonNumbersProps> = ({ number }) => {
     const contextValue = useContext(NumberContext);
     const handleSetDisplayValue = contextValue?.handleSetDisplayValue;
 
-    return(
-        <button className={style.Numbers} onClick={() => {handleSetDisplayValue && handleSetDisplayValue(String(number))}}>
-            <div  className={style.child}>
-                {number}
+    return (
+        <button className={style.Numbers} onClick={() => { handleSetDisplayValue && handleSetDisplayValue(String(number)) }}>
+            <div className={style.child}>
+                <div className={style.circle}>
+                    {number}
+                </div>
             </div>
         </button>
     )

@@ -1,7 +1,6 @@
 import React from "react";
 import Display from "../Display/Display";
 import { ButtonNumbers } from "../Buttons/ButtonNumbers/ButtonNumbers";
-;
 import style from "./Calc.module.scss";
 import { ButtonFunction } from "../Buttons/ButtonFunction/ButtonFunction";
 import { ButtonClear } from "../Buttons/ButtonClear/ButtonClear";
@@ -30,8 +29,8 @@ export const Calc = () => {
                 <ButtonNumbers number={9} ></ButtonNumbers>
                 <ButtonNumbers number={0} ></ButtonNumbers>
                 <ButtonNumbers number='.' ></ButtonNumbers>
-                <ButtonEquality />
                 <ButtonBack />
+                <ButtonEquality />
 
             </div>
         </div>

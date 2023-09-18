@@ -8,10 +8,12 @@ export const ButtonClear = () => {
     const contextValue = useContext(NumberContext);
     const doMath = contextValue?.handleClearValue;
 
-    return(
-        <button className={style.Numbers} onClick={() => {doMath && doMath()}}>
-            <div  className={style.child}>
-                AC
+    return (
+        <button className={style.Numbers} onClick={() => { doMath && doMath() }}>
+            <div className={style.child}>
+                <div className={style.circle}>
+                    AC
+                </div>
             </div>
         </button>
     )

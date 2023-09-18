@@ -6,14 +6,16 @@ interface ButtonNumbersProps {
     number: string
 }
 
-export const ButtonFunction: React.FC<ButtonNumbersProps> = ({number}) => {
+export const ButtonFunction: React.FC<ButtonNumbersProps> = ({ number }) => {
     const contextValue = useContext(NumberContext);
     const handleSetCalcFunction = contextValue?.handleSetCalcFunction;
 
-    return(
-        <button className={style.Numbers} onClick={() => {handleSetCalcFunction && handleSetCalcFunction(String(number))}}>
-            <div  className={style.child}>
-                {number}
+    return (
+        <button className={style.Numbers} onClick={() => { handleSetCalcFunction && handleSetCalcFunction(String(number)) }}>
+            <div className={style.child}>
+                <div className={style.circle}>
+                    {number}
+                </div>
             </div>
         </button>
     )
