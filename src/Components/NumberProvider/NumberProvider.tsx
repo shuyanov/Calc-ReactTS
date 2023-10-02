@@ -16,7 +16,7 @@ interface NumberContextValue {
 
 export const NumberContext = React.createContext<NumberContextValue | null>(null);
 
-const NumberProvider: React.FC<PropsWithChildren<NumberContextValue>> = ({children}) => {
+const NumberProvider: React.FC<PropsWithChildren<NumberContextValue>> = ({children}) => {    
   const [number, setNumber] = useState('');
   const [storedNumber, setStoredNumber] = useState('');
   const [functionType, setFunctionType] = useState('');

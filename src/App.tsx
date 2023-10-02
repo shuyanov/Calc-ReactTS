@@ -5,10 +5,10 @@ import { Calc } from './Components/Calc/Calc'
 function App() {
 
   return (
-    <div>
-    <NumberProvider>
-      <Calc />
-    </NumberProvider>
+    <div className='Calc'>
+      <NumberProvider>
+        <Calc />
+      </NumberProvider>
     </div>
   )
 }

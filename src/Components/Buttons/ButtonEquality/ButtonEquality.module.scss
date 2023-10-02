@@ -1,0 +1,19 @@
+@import '../../../mixins/buttons.scss';
+
+
+.circle {
+    @include citcle;
+    background-color: rgb(224, 85, 85);
+}
+
+.Numbers{
+    @include defaultButton;
+    box-shadow: 5px 0 0 0 rgb(185, 74, 74);
+    background-color: rgb(224, 80, 80);
+
+}
+
+.child{
+    @include positionButton;
+    background-color: rgb(185, 60, 60);
+}
