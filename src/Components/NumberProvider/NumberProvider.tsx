@@ -1,46 +1,53 @@
-import React, { PropsWithChildren, useState } from 'react';
+import React, { PropsWithChildren, useState } from "react";
+
+const historyNumbers: string[] = [];
 
 interface NumberContextValue {
-    doMath: () => void;
-    handleSetDisplayValue: (num: string) => void;
-    handleSetCalcFunction: (type: string) => void;
-    handleClearValue: () => void;
-    handleBackButton: () => void;
-    handleSetStoredValue: () => void;
-    handleToggleNegative: () => void;
-    functionType: string;
-    number: string;
-    storedNumber: string;
-    setNumber: React.Dispatch<React.SetStateAction<string>>;
+  doMath: () => void;
+  handleSetDisplayValue: (num: string) => void;
+  handleSetCalcFunction: (type: string) => void;
+  handleClearValue: () => void;
+  handleBackButton: () => void;
+  handleSetStoredValue: () => void;
+  handleToggleNegative: () => void;
+  functionType: string;
+  number: string;
+  storedNumber: string;
+  history: string[];
+  setNumber: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const NumberContext = React.createContext<NumberContextValue | null>(null);
+export const NumberContext = React.createContext<NumberContextValue | null>(
+  null
+);
 
-const NumberProvider: React.FC<PropsWithChildren<NumberContextValue>> = ({children}) => {    
-  const [number, setNumber] = useState('');
-  const [storedNumber, setStoredNumber] = useState('');
-  const [functionType, setFunctionType] = useState('');
-
+const NumberProvider: React.FC<PropsWithChildren<NumberContextValue>> = ({
+  children,
+}) => {
+  const [number, setNumber] = useState("");
+  const [storedNumber, setStoredNumber] = useState("");
+  const [functionType, setFunctionType] = useState("");
+  const [history, setHistory] = useState<string[]>([]);
 
   const handleSetDisplayValue = (num: string) => {
-    if (!number.includes('.') || num !== '.') {
-      setNumber(`${(number + num).replace(/^0+/, '')}`);
+    if (!number.includes(".") || num !== ".") {
+      setNumber(`${(number + num).replace(/^0+/, "")}`);
     }
-  }
+  };
 
   const handleSetStoredValue = () => {
     setStoredNumber(number);
-    setNumber('');
+    setNumber("");
   };
 
   const handleClearValue = () => {
-    setNumber('');
-    setStoredNumber('');
-    setFunctionType('');
+    setNumber("");
+    setStoredNumber("");
+    setFunctionType("");
   };
 
   const handleBackButton = () => {
-    if (number !== '') {
+    if (number !== "") {
       const deletedNumber = number.slice(0, number.length - 1);
       setNumber(deletedNumber);
     }
@@ -49,30 +56,49 @@ const NumberProvider: React.FC<PropsWithChildren<NumberContextValue>> = ({childr
   const doMath = () => {
     if (number && storedNumber) {
       switch (functionType) {
-        case '+':
+        case "+":
           setStoredNumber(
-            `${Math.round((parseFloat(storedNumber) + parseFloat(number)) * 100) / 100}`
+            `${
+              Math.round(
+                (parseFloat(storedNumber) + parseFloat(number)) * 100
+              ) / 100
+            }`
           );
           break;
-        case '-':
+        case "-":
           setStoredNumber(
-            `${Math.round((parseFloat(storedNumber) - parseFloat(number)) * 1000) / 1000}`
+            `${
+              Math.round(
+                (parseFloat(storedNumber) - parseFloat(number)) * 1000
+              ) / 1000
+            }`
           );
           break;
-        case '/':
+        case "/":
           setStoredNumber(
-            `${Math.round((parseFloat(storedNumber) / parseFloat(number)) * 1000) / 1000}`
+            `${
+              Math.round(
+                (parseFloat(storedNumber) / parseFloat(number)) * 1000
+              ) / 1000
+            }`
           );
           break;
-        case '*':
+        case "*":
           setStoredNumber(
-            `${Math.round(parseFloat(storedNumber) * parseFloat(number) * 1000) / 1000}`
+            `${
+              Math.round(parseFloat(storedNumber) * parseFloat(number) * 1000) /
+              1000
+            }`
           );
           break;
         default:
           break;
       }
-      setNumber('');
+      historyNumbers.push(storedNumber);
+      setHistory(historyNumbers);
+      setNumber("");
+
+      console.log(historyNumbers);
     }
   };
 
@@ -91,7 +117,6 @@ const NumberProvider: React.FC<PropsWithChildren<NumberContextValue>> = ({childr
       setStoredNumber(positiveNumber);
     }
   };
-
 
   const handleSetCalcFunction = (type: string) => {
     if (number) {
@@ -117,7 +142,9 @@ const NumberProvider: React.FC<PropsWithChildren<NumberContextValue>> = ({childr
         number,
         storedNumber,
         setNumber,
-      }}>
+        history,
+      }}
+    >
       {children}
     </NumberContext.Provider>
   );
